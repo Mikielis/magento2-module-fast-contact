@@ -1,0 +1,62 @@
+
+<?php if ($block->isModuleActive() === true): ?>
+    <div id="mikielis-contact" class="mikielis-contact">
+        <i class="<?= $block->getIcon() ?> contact-icon"></i>
+
+        <div class="form-container">
+            <form class="form contact"
+                  action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+                  id="contact-form"
+                  method="post"
+                  data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+                  data-mage-init='{"validation":{}}'>
+                <fieldset class="fieldset">
+                    <legend class="legend"><span><?= $block->escapeHtml(__($block->getMessage())) ?></span></legend><br />
+                    <div class="field name required">
+                        <div class="control">
+                            <input name="name" id="name" placeholder="<?= $block->escapeHtml(__('Name')) ?> *" title="<?= $block->escapeHtmlAttr(__('Name')) ?>" value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('name') ?: $this->helper(\Magento\Contact\Helper\Data::class)->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+                        </div>
+                    </div>
+                    <div class="field email required">
+                        <div class="control">
+                            <input name="email" id="email" placeholder="<?= $block->escapeHtml(__('Email')) ?> *" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('email') ?: $this->helper(\Magento\Contact\Helper\Data::class)->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+                        </div>
+                    </div>
+                    <div class="field telephone">
+                        <div class="control">
+                            <input name="telephone" id="telephone" placeholder="<?= $block->escapeHtml(__('Phone Number')) ?>" title="<?= $block->escapeHtmlAttr(__('Phone Number')) ?>" value="<?= $block->escapeHtmlAttr($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('telephone')) ?>" class="input-text" type="text" />
+                        </div>
+                    </div>
+                    <div class="field comment required">
+                        <div class="control">
+                            <textarea name="comment" id="comment" placeholder="<?= $block->escapeHtml(__('What’s on your mind?')) ?> *" title="<?= $block->escapeHtmlAttr(__('What’s on your mind?')) ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"><?= $block->escapeHtml($this->helper(\Magento\Contact\Helper\Data::class)->getPostValue('comment')) ?></textarea>
+                        </div>
+                    </div>
+                    <?= $block->getChildHtml('form.additional.info') ?>
+                </fieldset>
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <input type="hidden" name="hideit" id="hideit" value="" />
+                        <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                            <span><?= $block->escapeHtml(__('Submit')) ?></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/x-magento-init">
+    {
+        "#mikielis-contact": {
+            "fastContact": {
+                "contactIcon": ".contact-icon",
+                "contactIconClass": "<?= $block->getIcon() ?>",
+                "formContainer": ".form-container"
+            }
+        }
+    }
+    </script>
+<?php endif ?>
+
+

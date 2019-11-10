@@ -1,0 +1,15 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mikielis_contact>
+            <functional>
+                <enable>0</enable>
+            </functional>
+            <content>
+                <message>Please fill out the form below and we will get back to you as soon as possible.</message>
+            </content>
+            <design>
+                <icon>1</icon>
+            </design>
+        </mikielis_contact>
+    </default>
+</config>
