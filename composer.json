@@ -15,6 +15,6 @@
     }],
     "autoload": {
         "files": ["registration.php"],
-        "psr-4": { "Mikielis\\Cookie\\": "" }
+        "psr-4": { "Mikielis\\Contact\\": "" }
     }
 }
